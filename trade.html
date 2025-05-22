@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{Category} - Flip It</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="script" href="script.js">
+</head>
+<body>
+  <div class="header">
+    <h1>Flip It</h1>
+    <div class="header-nav">
+      <div class="nav-primary">
+        <a href="index.html">Home</a>
+        <a href="#" onclick="showModal('login')">Log In</a>
+        <a href="#" onclick="showModal('create-account')">Create Account</a>
+      </div>
+      <div class="nav-secondary">
+        <a href="cars.html">Cars</a>
+        <a href="bikes.html">Bikes</a>
+        <a href="electronics.html">Electronics</a>
+        <a href="housing.html">Housing</a>
+        <a href="trade.html">Trade</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Login Modal -->
+  <div class="modal" id="login-modal">
+    <div class="modal-content">
+      <button class="close" onclick="closeModal('login')">×</button>
+      <h2>Log In</h2>
+      <form id="login-form" onsubmit="handleLogin(event)">
+        <input type="email" placeholder="Email" required>
+        <input type="password" placeholder="Password" required>
+        <button type="submit">Log In</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Create Account Modal -->
+  <div class="modal" id="create-account-modal">
+    <div class="modal-content">
+      <button class="close" onclick="closeModal('create-account')">×</button>
+      <h2>Create Account</h2>
+      <form id="create-account-form" onsubmit="handleCreateAccount(event)">
+        <input type="text" placeholder="Username" required>
+        <input type="email" placeholder="Email" required>
+        <input type="password" placeholder="Password" required>
+        <input type="password" placeholder="Confirm Password" required>
+        <button type="submit">Create Account</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Category Filter Section -->
+  <div class="filter-section">
+    <h2>Filter </h2>
+    <form id="category-filter-form">
+      <div>
+        <label for="location">Location</label>
+        <select id="location" name="location">
+          <option value="">Any</option>
+          <option value="Auckland">Auckland</option>
+          <option value="Wellington">Wellington</option>
+          <option value="Christchurch">Christchurch</option>
+        </select>
+      </div>
+      <div>
+        <label for="price-max">Price (max)</label>
+        <input type="number" id="price-max" name="price-max" placeholder="Max Price">
+      </div>
+      <button type="submit">Apply Filters</button>
+    </form>
+  </div>
+
+  <!-- Category Listings -->
+  <div class="listings" id="category-listings">
+    <!-- Listings populated by JavaScript -->
+  </div>
+
+  <!-- Listing Detail (Hidden by default) -->
+  <div class="listing-detail" id="category-detail" style="display: none;">
+    <a href="/{category}.html" class="back-button">Back to Listings</a>
+    <div id="category-detail-content"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

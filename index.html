@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flip It</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+  <div class="header">
+    <h1>Flip It</h1>
+    <div class="nav-primary">
+      <a href="/index.html">Home</a>
+      <a href="#" onclick="showModal('login')">Log In</a>
+      <a href="#" onclick="showModal('create-account')">Create Account</a>
+    </div>
+  </div>
+  <div class="header-nav">
+    <div class="nav-secondary">
+      <a href="cars.html">Cars</a>
+      <a href="bikes.html">Bikes</a>
+      <a href="electronics.html">Electronics</a>
+      <a href="housing.html">Housing</a>
+      <a href="trade.html">Trade</a>
+    </div>
+  </div>
+
+  <!-- Login Modal -->
+  <div class="modal" id="login-modal">
+    <div class="modal-content">
+      <button class="close" onclick="closeModal('login')">×</button>
+      <h2>Log In</h2>
+      <form id="login-form" onsubmit="handleLogin(event)">
+        <input type="email" placeholder="Email" required>
+        <input type="password" placeholder="Password" required>
+        <button type="submit">Log In</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Create Account Modal -->
+  <div class="modal" id="create-account-modal">
+    <div class="modal-content">
+      <button class="close" onclick="closeModal('create-account')">×</button>
+      <h2>Create Account</h2>
+      <form id="create-account-form" onsubmit="handleCreateAccount(event)">
+        <input type="text" placeholder="Username" required>
+        <input type="email" placeholder="Email" required>
+        <input type="password" placeholder="Password" required>
+        <input type="password" placeholder="Confirm Password" required>
+        <button type="submit">Create Account</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Cars Carousel -->
+  <div class="category-section">
+    <h2>Cars</h2>
+    <div class="carousel-container">
+      <div class="carousel">
+        <div class="tile">
+          <img src="https://images.unsplash.com/photo-1494976383938-8d3b6fada33e?q=80&w=2070&auto=format&fit=crop" alt="Toyota Corolla">
+          <div class="tile-content">
+            <h3>Toyota Corolla</h3>
+            <p>Reliable sedan for daily commutes.</p>
+          </div>
+        </div>
+        <div class="tile">
+          <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=2070&auto=format&fit=crop" alt="Honda CR-V">
+          <div class="tile-content">
+            <h3>Honda CR-V</h3>
+            <p>Spacious SUV for family trips.</p>
+          </div>
+        </div>
+        <div class="tile">
+          <img src="https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?q=80&w=2070&auto=format&fit=crop" alt="Ford Mustang">
+          <div class="tile-content">
+            <h3>Ford Mustang</h3>
+            <p>Iconic sports car for enthusiasts.</p>
+          </div>
+        </div>
+        <div class="tile">
+          <img src="https://images.unsplash.com/photo-1580273916550-ebd7c15a6a75?q=80&w=2070&auto=format&fit=crop" alt="Tesla Model 3">
+          <div class="tile-content">
+            <h3>Tesla Model 3</h3>
+            <p>Electric sedan with cutting-edge tech.</p>
+          </div>
+        </div>
+        <!-- Duplicate tiles for seamless looping -->
+        <div class="tile">
+          <img src="https://images.unsplash.com/photo-1494976383938-8d3b6fada33e?q=80&w=2070&auto=format&fit=crop" alt="Toyota Corolla">
+          <div class="tile-content">
+            <h3>Toyota Corolla</h3>
+            <p>Reliable sedan for daily commutes.</p>
+          </div>
+        </div>
+        <div class="tile">
+          <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=2070&auto=format&fit=crop" alt="Honda CR-V">
+          <div class="tile-content">
+            <h3>Honda CR-V</h3>
+            <p>Spacious SUV for family trips.</p>
+          </div>
+        </div>
+        <div class="tile">
+          <img src="https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?q=80&w=2070&auto=format&fit=crop" alt="Ford Mustang">
+          <div class="tile-content">
+            <h3>Ford Mustang</h3>
+            <p>Iconic sports car for enthusiasts.</p>
+          </div>
+        </div>
+        <div class="tile">
+          <img src="https://images.unsplash.com/photo-1580273916550-ebd7c15a6a75?q=80&w=2070&auto=format&fit=crop" alt="Tesla Model 3">
+          <div class="tile-content">
+            <h3>Tesla Model 3</h3>
+            <p>Electric sedan with cutting-edge tech.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bikes Carousel -->
+  <div class="category-section">
+    <h2>Bikes</h2>
+    <div class="carousel-container">
+      <div class="carousel">
+        <div class="tile">
+          <img src="https://images.unsplash.com/photo-1558981403-c5f9899a28bc?q=80&w=2070&auto=format&fit=crop" alt="Harley-Davidson">
+          <div class="tile-content">
+            <h3>Harley-Davidson</h3>
+            <p>Classic motorcycle for cruising.</p>
+          </div>
+        </div>
+        <div class="tile">
+          <img src="https://images.unsplash.com/photo-1567164220428-0e684ad4b6b8?q=80&w=2070&auto=format&fit=crop" alt="Trek Road Bike">
+          <div class="tile-content">
+            <h3>Trek Road Bike</h3>
+            <p>Lightweight bike for speed and fitness.</p>
+          </div>
+        </div>
+        <div class="tile">
+          <img src="https://images.unsplash.com/photo-1532298229144-0ec0c57515c7?q=80&w=2070&auto=format&fit=crop" alt="E-Bike">
+          <div class="tile-content">
+            <h3>E-Bike</h3>
+            <p>Electric bike for easy commuting.</p>
+          </div>
+        </div>
+        <div class="tile">
+          <img src="https://images.unsplash.com/photo-1571068316344-75bc76f77890?q=80&w=2070&auto=format&fit=crop" alt="Mountain Bike">
+          <div class="tile-content">
+            <h3>Mountain Bike</h3>
+            <p>Rugged bike for off-road adventures.</p>
+          </div>
+        </div>
+        <!-- Duplicate tiles for seamless looping -->
+        <div class="tile">
+          <img src="https://images.unsplash.com/photo-1558981403-c5f9899a28bc?q=80&w=2070&auto=format&fit=crop" alt="Harley-Davidson">
+          <div class="tile-content">
+            <h3>Harley-Davidson</h3>
+            <p>Classic motorcycle for cruising.</p>
+          </div>
+        </div>
+        <div class="tile">
+          <img src="https://images.unsplash.com/photo-1567164220428-0e684ad4b6b8?q=80&w=2070&auto=format&fit=crop" alt="Trek Road Bike">
+          <div class="tile-content">
+            <h3>Trek Road Bike</h3>
+            <p>Lightweight bike for speed and fitness.</p>
+          </div>
+        </div>
+        <div class="tile">
+          <img src="https://images.unsplash.com/photo-1532298229144-0ec0c57515c7?q=80&w=2070&auto=format&fit=crop" alt="E-Bike">
+          <div class="tile-content">
+            <h3>E-Bike</h3>
+            <p>Electric bike for easy commuting.</p>
+          </div>
+        </div>
+        <div class="tile">
+          <img src="https://images.unsplash.com/photo-1571068316344-75bc76f77890?q=80&w=2070&auto=format&fit=crop" alt="Mountain Bike">
+          <div class="tile-content">
+            <h3>Mountain Bike</h3>
+            <p>Rugged bike for off-road adventures.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Electronics Carousel -->
+  <div class="category-section">
+    <h2>Electronics</h2>
+    <div class="carousel-container">
+      <div class="carousel">
+        <div class="tile">
+          <img src="https://images.unsplash.com/photo-1497215842964-222b430dc8b6?q=80&w=2070&auto=format&fit=crop" alt="iPhone 14">
+          <div class="tile-content">
+            <h3>iPhone 14</h3>
+            <p>Latest smartphone with advanced features.</p>
+          </div>
+        </div>
+        <div class="tile">
+          <img src="https://images.unsplash.com/photo-1516321310766-66f61757492b?q=80&w=2070&auto=format&fit=crop" alt="MacBook Pro">
+          <div class="tile-content">
+            <h3>MacBook Pro</h3>
+            <p>Powerful laptop for professionals.</p>
+          </div>
+        </div>
+        <div class="tile">
+          <img src="https://images.unsplash.com/photo-1593642702821-c4da7b81adda?q=80&w=2070&auto=format&fit=crop" alt="AirPods">
+          <div class="tile-content">
+            <h3>AirPods</h3>
+            <p>Wireless earbuds with great sound.</p>
+          </div>
+        </div>
+        <div class="tile">
+          <img src="https://images.unsplash.com/photo-1586953206448-5988a1d1d266?q=80&w=2070&auto=format&fit=crop" alt="Smart TV">
+          <div class="tile-content">
+            <h3>Smart TV</h3>
+            <p>4K TV for immersive viewing.</p>
+          </div>
+        </div>
+        <!-- Duplicate tiles for seamless looping -->
+        <div class="tile">
+          <img src="https://images.unsplash.com/photo-1497215842964-222b430dc8b6?q=80&w=2070&auto=format&fit=crop" alt="iPhone 14">
+          <div class="tile-content">
+            <h3>iPhone 14</h3>
+            <p>Latest smartphone with advanced features.</p>
+          </div>
+        </div>
+        <div class="tile">
+          <img src="https://images.unsplash.com/photo-1516321310766-66f61757492b?q=80&w=2070&auto=format&fit=crop" alt="MacBook Pro">
+          <div class="tile-content">
+            <h3>MacBook Pro</h3>
+            <p>Powerful laptop for professionals.</p>
+          </div>
+        </div>
+        <div class="tile">
+          <img src="https://images.unsplash.com/photo-1593642702821-c4da7b81adda?q=80&w=2070&auto=format&fit=crop" alt="AirPods">
+          <div class="tile-content">
+            <h3>AirPods</h3>
+            <p>Wireless earbuds with great sound.</p>
+          </div>
+        </div>
+        <div class="tile">
+          <img src="https://images.unsplash.com/photo-1586953206448-5988a1d1d266?q=80&w=2070&auto=format&fit=crop" alt="Smart TV">
+          <div class="tile-content">
+            <h3>Smart TV</h3>
+            <p>4K TV for immersive viewing.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+  <!-- Housing Carousel -->
+  <div class="category-section">
+    <h2>Housing</h2>
+    <div class="carousel-container">
+      <div class="carousel">
+        <div class="tile">
+          <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=2070&auto=format&fit=crop" alt="City Apartment">
+          <div class="tile-content">
+            <h3>City Apartment</h3>
+            <p>Modern rental in the heart of the city.</p>
+          </div>
+        </div>
+        <div class="tile">
+          <img src="https://images.unsplash.com/photo-1518780664697-55e3ad937233?q=80&w=2070&auto=format&fit=crop" alt="Suburban House">
+          <div class="tile-content">
+            <h3>Suburban House</h3>
+            <p>Spacious home for sale.</p>
+          </div>
+        </div>
+        <div class="tile">
+          <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop" alt="Luxury Condo">
+          <div class="tile-content">
+            <h3>Luxury Condo</h3>
+            <p>High-end condo with premium amenities.</p>
+          </div>
+        </div>
+        <div class="tile">
+          <img src="https://images.unsplash.com/photo-1600585152915-d208bec867a1?q=80&w=2070&auto=format&fit=crop" alt="Cozy Cottage">
+          <div class="tile-content">
+            <h3>Cozy Cottage</h3>
+            <p>Charming rental for a quiet getaway.</p>
+          </div>
+        </div>
+        <!-- Duplicate tiles for seamless looping -->
+        <div class="tile">
+          <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=2070&auto=format&fit=crop" alt="City Apartment">
+          <div class="tile-content">
+            <h3>City Apartment</h3>
+            <p>Modern rental in the heart of the city.</p>
+          </div>
+        </div>
+        <div class="tile">
+          <img src="https://images.unsplash.com/photo-1518780664697-55e3ad937233?q=80&w=2070&auto=format&fit=crop" alt="Suburban House">
+          <div class="tile-content">
+            <h3>Suburban House</h3>
+            <p>Spacious home for sale.</p>
+          </div>
+        </div>
+        <div class="tile">
+          <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop" alt="Luxury Condo">
+          <div class="tile-content">
+            <h3>Luxury Condo</h3>
+            <p>High-end condo with premium amenities.</p>
+          </div>
+        </div>
+        <div class="tile">
+          <img src="https://images.unsplash.com/photo-1600585152915-d208bec867a1?q=80&w=2070&auto=format&fit=crop" alt="Cozy Cottage">
+          <div class="tile-content">
+            <h3>Cozy Cottage</h3>
+            <p>Charming rental for a quiet getaway.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Trade Carousel -->
+  <div class="category-section">
+    <h2>Trade</h2>
+    <div class="carousel-container">
+      <div class="carousel">
+        <div class="tile">
+          <img src="https://images.unsplash.com/photo-1507089947368-8e4019a90a7e?q=80&w=2070&auto=format&fit=crop" alt="Vintage Furniture">
+          <div class="tile-content">
+            <h3>Vintage Furniture</h3>
+            <p>Trade unique furniture pieces.</p>
+          </div>
+        </div>
+        <div class="tile">
+          <img src="https://images.unsplash.com/photo-1576675761922-cb8f4c8f8e7b?q=80&w=2070&auto=format&fit=crop" alt="Gardening Services">
+          <div class="tile-content">
+            <h3>Gardening Services</h3>
+            <p>Swap landscaping or gardening help.</p>
+          </div>
+        </div>
+        <div class="tile">
+          <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=2070&auto=format&fit=crop" alt="Collectible Cards">
+          <div class="tile-content">
+            <h3>Collectible Cards</h3>
+            <p>Trade rare cards with enthusiasts.</p>
+          </div>
+        </div>
+        <div class="tile">
+          <img src="https://images.unsplash.com/photo-1581235720704-06d3acfcb424?q=80&w=2070&auto=format&fit=crop" alt="Used Books">
+          <div class="tile-content">
+            <h3>Used Books</h3>
+            <p>Exchange your favorite reads.</p>
+          </div>
+        </div>
+        <!-- Duplicate tiles for seamless looping -->
+        <div class="tile">
+          <img src="https://images.unsplash.com/photo-1507089947368-8e4019a90a7e?q=80&w=2070&auto=format&fit=crop" alt="Vintage Furniture">
+          <div class="tile-content">
+            <h3>Vintage Furniture</h3>
+            <p>Trade unique furniture pieces.</p>
+          </div>
+        </div>
+        <div class="tile">
+          <img src="https://images.unsplash.com/photo-1576675761922-cb8f4c8f8e7b?q=80&w=2070&auto=format&fit=crop" alt="Gardening Services">
+          <div class="tile-content">
+            <h3>Gardening Services</h3>
+            <p>Swap landscaping or gardening help.</p>
+          </div>
+        </div>
+        <div class="tile">
+          <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=2070&auto=format&fit=crop" alt="Collectible Cards">
+          <div class="tile-content">
+            <h3>Collectible Cards</h3>
+            <p>Trade rare cards with enthusiasts.</p>
+          </div>
+        </div>
+        <div class="tile">
+          <img src="https://images.unsplash.com/photo-1581235720704-06d3acfcb424?q=80&w=2070&auto=format&fit=crop" alt="Used Books">
+          <div class="tile-content">
+            <h3>Used Books</h3>
+            <p>Exchange your favorite reads.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function showModal(modalId) {
+      document.getElementById(`${modalId}-modal`).style.display = 'flex';
+    }
+
+    function closeModal(modalId) {
+      document.getElementById(`${modalId}-modal`).style.display = 'none';
+    }
+
+    function handleLogin(event) {
+      event.preventDefault();
+      const form = document.getElementById('login-form');
+      const email = form.querySelector('input[type="email"]').value;
+      const password = form.querySelector('input[type="password"]').value;
+      console.log('Login:', { email, password });
+      closeModal('login');
+    }
+
+    function handleCreateAccount(event) {
+      event.preventDefault();
+      const form = document.getElementById('create-account-form');
+      const username = form.querySelector('input[type="text"]').value;
+      const email = form.querySelector('input[type="email"]').value;
+      const password = form.querySelector('input[type="password"]').value;
+      console.log('Create Account:', { username, email, password });
+      closeModal('create-account');
+    }
+  </script>
+</body>
+</html>
